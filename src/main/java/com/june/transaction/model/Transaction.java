@@ -1,5 +1,6 @@
 package com.june.transaction.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -57,6 +58,7 @@ public class Transaction {
         this.description = description;
     }
 
+    @JsonIgnore
     public Boolean isNull(){
         return serialNumber == null && title == null && description == null;
     }
