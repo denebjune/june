@@ -65,9 +65,9 @@ class TransactionApplicationTests {
     @Order(4)
     void testCreateTransaction() {
         //test insert a new Transaction
-        String serialNumber = "00004";
-        String title = "Transaction 4";
-        String description = "This is Transaction 4";
+        String serialNumber = "000010";
+        String title = "Transaction 10";
+        String description = "This is Transaction 10";
         double amount = 100.00;
         String requestBody = "title=" + title + "&description=" + description + "&serialNumber=" + serialNumber + "&amount=" + amount;
         try{
@@ -89,7 +89,8 @@ class TransactionApplicationTests {
         String serialNumber = "00003";
         String title = "Transaction 3";
         String description = "This is Transaction 3";
-        String requestBody = "title=" + title + "&description=" + description + "&serialNumber=" + serialNumber;
+        double amount = 100.00;
+        String requestBody = "title=" + title + "&description=" + description + "&serialNumber=" + serialNumber + "&amount=" + amount;
         try{
             HttpRequest request =  HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(requestBody))
                     .uri(new URI("http://localhost:8080/api/v1/transaction"))
@@ -148,9 +149,9 @@ class TransactionApplicationTests {
     @Order(8)
     void testUpdateTransactionConflict(){
         //update Transaction with serialNumber conflict with existed one
-        int existId = 3;
-        String title = "Transaction 3 v2.0";
-        String description = "This is Transaction 3 V2.0";
+        int existId = 1;
+        String title = "Transaction 1 v2.0";
+        String description = "This is Transaction 1 V2.0";
         String serialNumber = "00002";
         String requestBody = "title=" + title + "&description=" + description + "&serialNumber=" + serialNumber;
         try{
